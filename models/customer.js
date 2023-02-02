@@ -14,7 +14,7 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   customer.init({
-    customerId: {
+    nickname: {
       type: Sequelize.STRING,
       allowNull: false,
     },

@@ -14,7 +14,7 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   manager.init({
-    managerId: {
+    nickname: {
       type: Sequelize.STRING,
       allowNull: false,
     },
