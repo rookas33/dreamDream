@@ -9,8 +9,10 @@ module.exports = (sequelize, DataTypes) => {
      * This method is not a part of Sequelize lifecycle.
      * The `models/index` file will call this method automatically.
      */
-    static associate(models) {
+    static associate({Customer, Goods}) {
       // define association here
+      this.belongsTo(Customer, { foreignKey: 'customer_id', as: 'customer' });
+      this.belongsTo(Goods, { foreignKey: 'goods_id', as: 'goods' });
     }
   }
   cart.init({
@@ -28,7 +30,7 @@ module.exports = (sequelize, DataTypes) => {
     },
   }, {
     sequelize,
-    modelName: 'cart',
+    modelName: 'Cart',
     tableName: 'carts'
   });
   return cart;
