@@ -22,7 +22,7 @@ class MainService {
     // 더미 고객 회원가입
     customerSignUp = async () => {
         const customerSignUp = await mainRepository.customerSignUp(
-            customerId,
+            nickname,
             name,
             password,
             email,
@@ -30,7 +30,7 @@ class MainService {
         );
 
         return {
-            customerId: customerSignUp.customerId,
+            nickname: customerSignUp.nickname,
             name: customerSignUp.name,
             password: customerSignUp.password,
             email: customerSignUp.email,

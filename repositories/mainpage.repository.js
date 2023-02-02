@@ -14,7 +14,7 @@ class MainRepository{
     }; 
     
     customerSignUp = async (
-        customerId,
+        nickname,
         name,
         password,
         email,
@@ -22,7 +22,7 @@ class MainRepository{
         ) => {
             try{
                 const customerSignIn = await customer.create({
-                    customerId,
+                    nickname,
                     name,
                     password,
                     email,

@@ -14,7 +14,7 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   manager.init({
-    managerId: {
+    nickname: {
       type: Sequelize.STRING,
       allowNull: false,
     },
@@ -32,7 +32,7 @@ module.exports = (sequelize, DataTypes) => {
     },
   }, {
     sequelize,
-    modelName: 'manager',
+    modelName: 'Manager',
     tableName: 'managers'
   });
   return manager;

@@ -22,11 +22,11 @@ class MainController {
     // 임시 회원가입 
     customerSignUp = async (req,res,next) => {
         try {
-            const { customerId,name,password,email} = req.body; 
+            const { nickname,name,password,email} = req.body; 
             const point = 0;
 
             const createCustomerData = await this.mainService.customerSignUp(
-                customerId,name,password,email,point
+                nickname,name,password,email,point
             ); 
 
             res.status(201).json({data: createCustomerData}); 
