@@ -3,7 +3,7 @@ const router = express.Router();
 const multer = require("multer");
 
 const ManagerController = require("../controllers/manager.controller.js");
-const managerController = new managerController();
+const managerController = new ManagerController();
 
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
@@ -16,19 +16,26 @@ const storage = multer.diskStorage({
 
 router.post(
   "/goods/new",
-  upload.single("image"),
-  managerController.GoodsEnroll
+  // upload.single("image"),
+  managerController.goodsEnroll
 );
 
-router.put("/goods/modify/:goodsId", managerController.GoodsModify);
+router.put(
+  "/goods/modify/:goodsId",
+  // upload.single("image"),
+  managerController.goodsModify
+);
+router.get("/", (req, res) => {
+  res.render("management.ejs");
+});
 
-router.get("/customer/:customerId", managerController.costommerGet);
+router.get("/customer/:id", managerController.customerGet);
 
-router.put("/customer/modify", managerController.costommerModify);
+router.put("/customer/modify", managerController.customerModify);
 
 router.delete(
   "/users/manager/customer/delete",
-  managerController.costommerDelete
+  managerController.customerDelete
 );
 
 module.exports = router;

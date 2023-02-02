@@ -1,6 +1,7 @@
 const express = require("express");
 const cookieParser = require("cookie-parser");
 require("dotenv").config();
+const managerRouter = require("./routes/manager.Router");
 
 const app = express();
 
@@ -17,6 +18,8 @@ app.use(express.json());
 
 app.use(express.static("./assets"));
 app.use("/assets", express.static("assets"));
+
+app.use("/management", managerRouter);
 
 // 메인 페이지
 app.get("/", (req, res) => {
